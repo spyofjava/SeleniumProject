@@ -39,7 +39,7 @@ public class P3_Amazon_cssSelectorTask {
             System.out.println("expectedInTitle = " + expectedInTitle);
 
 
-
+            System.out.println();
         }
 
 
