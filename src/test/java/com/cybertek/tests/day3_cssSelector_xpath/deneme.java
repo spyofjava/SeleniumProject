@@ -15,22 +15,26 @@ public class deneme {
 
         driver.get("http://practice.cybertekschool.com/multiple_buttons");
 
-        Thread.sleep(2000);
-        WebElement button4 =driver.findElement(By.linkText("Button 1"));
-        button4.click();
-        Thread.sleep(2000);
-        WebElement result= driver.findElement(By.id("result"));
 
-        String expected="Clicked on button four!";
-        String actual=result.getText();
 
-        if (actual.equals(expected)){
-            System.out.println("pass");
-        }else {
-            System.out.println("failed");
-            System.out.println("actual: "+actual);
-            System.out.println("expected: "+expected);
-        }
+//        WebElement button1= driver.findElement(By.xpath("/html/body/div/div[2]/div/div[1]/button[1]"));
+//        button1.click();
+//        Thread.sleep(2000);
+//
+//        WebElement button2 = driver.findElement(By.name("button2"));
+//        button2.click();
+//        Thread.sleep(2000);
+
+        WebElement button3 = driver.findElement(By.id("button_btn324"));
+        button3.click();
+        Thread.sleep(2000);
+        driver.close();
+
+
+//        WebElement button4 =driver.findElement(By.id("quick_button"));
+//        button4.click();
+//        Thread.sleep(2000);
+
 
         driver.close();
 
