@@ -16,6 +16,7 @@ public class bos {
         driver.manage().window().maximize();
 
         driver.get("https://web.whatsapp.com/");
+        Thread.sleep(5000);
         driver.manage().timeouts().implicitlyWait(18, TimeUnit.SECONDS);
 
         driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div/div[2]/div[1]/div/div/div[13]/div/div/div[2]"));
