@@ -3,7 +3,6 @@ package com.cybertek.tests.day4_findElements_checkboxes;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class bos {
 
@@ -17,20 +16,19 @@ public class bos {
         driver.get("http://practice.cybertekschool.com/forgot_password");
 
 
-        WebElement homelink=driver.findElement(By.xpath("//a[.='Home']"));
-        homelink.click();
+
 
         Thread.sleep(1000);
-        String actualurl=driver.getCurrentUrl();
-        String expectedUrl="http://practice.cybertekschool.com/";
+        String actualheader=driver.findElement(By.xpath("//h2[.='Forgot Password']")).getText();
+        String expectedheader="Forgot Password";
 
 
-        if (actualurl.equals(expectedUrl)){
+        if (actualheader.equals(expectedheader)){
             System.out.println("PASSED");
         }else {
             System.out.println("FAILED");
-            System.out.println("actual:"+actualurl);
-            System.out.println("expected:"+expectedUrl);
+            System.out.println("actual:"+actualheader);
+            System.out.println("expected:"+expectedheader);
         }
 
 
