@@ -2,8 +2,8 @@ package com.cybertek.tests.day4_findElements_checkboxes;
 
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class bos {
 
@@ -15,8 +15,8 @@ public class bos {
         driver.manage().window().maximize();
 
         driver.get("https://www.amazon.com");
-        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Apple"+ Keys.ENTER);
-
+       // driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Apple"+ Keys.ENTER);
+        WebElement amazonsearchbox=driver.findElement(By.cssSelector("input[id='twotabsearchtextbox']"));
 
 
 
