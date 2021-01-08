@@ -8,42 +8,46 @@ import org.openqa.selenium.WebElement;
 import java.util.concurrent.TimeUnit;
 
 public class TC2_Checkbox_Verification {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
+        //1. Open Chrome browser
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
 
-    //TC	#2:	SeleniumEasy	CheckboxVerification–Section	1
-    //1.Open	Chrome	browser
-    WebDriver driver= WebDriverFactory.getDriver("chrome");
+        //2. Go to https://www.seleniumeasy.com/test/basic-checkbox-demo.html
+        driver.get("https://www.seleniumeasy.com/test/basic-checkbox-demo.html");
 
-    //maximize the browser
-    driver.manage().window().maximize();
+        //maximize our browser
+        driver.manage().window().maximize();
 
-    //creating the implicitWait  !!! pay attention in that point. we can create that after creating  Webdriver object==>sometimes the browser,pc or internet can be slow.
-    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        //creating implicit wait for our findElement method
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
+        //3. Verify “Success – Check box is checked” message is NOT displayed.
 
-    //2.Go	to	https://www.seleniumeasy.com/test/basic-checkbox-demo.html
-    driver.get("https://www.seleniumeasy.com/test/basic-checkbox-demo.html");
+        //Option #1: Using xpath and id attribute value to locate successMessage
+        //Option #2: Using xpath and style attribute value: //div[@style='display: block;']
+        //Option #3: Using xpath and text value: //div[.='Success - Check box is checked']
+        //Option #4: Using xpath and text value: //div[text()='Success - Check box is checked']
+        //Option #5: Using xpath and * instead of tagName: //*[@id=“txtAge”]
+        WebElement successMessage = driver.findElement(By.xpath("//div[@id='txtAge']"));
 
+        //Locating checkbox
+        WebElement checkbox1 = driver.findElement(By.xpath("//input[@id='isAgeSelected']"));
 
-    //optiion1
-    WebElement successmessage = driver.findElement(By.xpath("//div[@id='txtAge']"));
-
-    //3.Verify	“Success	–Check	box	is	checked”	message	is	NOTdisplayed.
-
-        if (successmessage.isDisplayed()){
-
+        if (!checkbox1.isSelected() && !successMessage.isDisplayed()){
+            System.out.println("Checkbox is not selected. Message is not displayed. Verification PASS!");
+        }else{
+            System.out.println("FAIL!");
         }
 
-    //4.Click	to	checkbox	under	“Single	Checkbox	Demo”	section
-    //5.Verify	“Success	–Check	box	is	checked”	message	isdisplayed
+        //4. Click to checkbox under “Single Checkbox Demo” section
+        Thread.sleep(2000);
 
+        checkbox1.click();
 
+        Thread.sleep(2000);
 
-
-
-
-
+        driver.close();
 
 
     }
