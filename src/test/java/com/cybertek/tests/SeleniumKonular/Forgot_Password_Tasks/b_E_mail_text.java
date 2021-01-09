@@ -1,4 +1,4 @@
-package com.cybertek.tests.SeleniumKonular.Locators_Task;
+package com.cybertek.tests.SeleniumKonular.Forgot_Password_Tasks;
 
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
-public class Locators_E_mail_text {
+public class b_E_mail_text {
 
     public static void main(String[] args) {
 

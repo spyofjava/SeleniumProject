@@ -1,4 +1,4 @@
-package com.cybertek.tests.SeleniumKonular.Locators_Task;
+package com.cybertek.tests.SeleniumKonular.Forgot_Password_Tasks;
 
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class Locator_Home_linktext {
+public class a_Home_linktext {
 
 
     public static void main(String[] args) throws InterruptedException {
