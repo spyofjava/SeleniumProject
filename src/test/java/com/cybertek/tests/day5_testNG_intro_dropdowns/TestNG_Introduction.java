@@ -14,8 +14,7 @@ public class TestNG_Introduction {
     public void tearDownMethod(){
         System.out.println("--->After method is running...");
     }
-
-
+    
     /*
       @BeforeClass will make the method run once before everything else in the class.
        */
