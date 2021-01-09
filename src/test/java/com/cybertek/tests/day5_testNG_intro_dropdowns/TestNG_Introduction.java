@@ -53,6 +53,9 @@ public class TestNG_Introduction {
         //assertTrue: expects a boolean value to be passed
         Assert.assertTrue(str1.equals(str2) , "Comparing hello word's failed.");
 
+        //assertEquals: expects two arguments of the same type: String VS String etc.
+        Assert.assertEquals(str1, str3 , "Asserting with assertEquals on line 56");
+
 
     }
 
