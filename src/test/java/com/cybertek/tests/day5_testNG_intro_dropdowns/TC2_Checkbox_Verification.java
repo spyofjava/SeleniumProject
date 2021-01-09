@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 
 public class TC2_Checkbox_Verification {
     public static void main(String[] args) throws InterruptedException {
-
         //1. Open Chrome browser
         WebDriver driver = WebDriverFactory.getDriver("chrome");
 
@@ -34,9 +33,9 @@ public class TC2_Checkbox_Verification {
         //Locating checkbox
         WebElement checkbox1 = driver.findElement(By.xpath("//input[@id='isAgeSelected']"));
 
-        if (!checkbox1.isSelected() && !successMessage.isDisplayed()){
+        if (!checkbox1.isSelected() && !successMessage.isDisplayed()) {
             System.out.println("Checkbox is not selected. Message is not displayed. Verification PASS!");
-        }else{
+        } else {
             System.out.println("FAIL!");
         }
 
@@ -45,11 +44,16 @@ public class TC2_Checkbox_Verification {
 
         checkbox1.click();
 
+        //5. Verify “Success – Check box is checked” message is displayed.
+        if (checkbox1.isSelected() && successMessage.isDisplayed()) {
+            System.out.println("Checkbox is selected. Message is displayed. Verification PASS!");
+        } else {
+            System.out.println("FAIL!");
+        }
+
         Thread.sleep(2000);
 
         driver.close();
-
-
     }
 
 }
