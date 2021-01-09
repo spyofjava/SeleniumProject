@@ -1,5 +1,6 @@
 package com.cybertek.tests.day5_testNG_intro_dropdowns;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class TestNG_Introduction {
@@ -48,6 +49,9 @@ public class TestNG_Introduction {
         String str1 = "hello";
         String str2 = "hello";
         String str3 = "hello";
+
+        //assertTrue: expects a boolean value to be passed
+        Assert.assertTrue(str1.equals(str2) , "Comparing hello word's failed.");
 
 
     }
