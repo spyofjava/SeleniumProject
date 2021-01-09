@@ -1,9 +1,6 @@
 package com.cybertek.tests.day5_testNG_intro_dropdowns;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
 public class TestNG_Introduction {
 
@@ -32,6 +29,11 @@ public class TestNG_Introduction {
     @AfterClass
     public void teardownClass(){
         System.out.println("------>After class is running...");
+    }
+
+    @Test
+    public void test1(){
+        System.out.println("->Running test 1...");
     }
 
 
