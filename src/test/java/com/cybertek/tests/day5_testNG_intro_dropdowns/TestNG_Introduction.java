@@ -1,5 +1,6 @@
 package com.cybertek.tests.day5_testNG_intro_dropdowns;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class TestNG_Introduction {
@@ -41,6 +42,16 @@ public class TestNG_Introduction {
         System.out.println("->Running test 2...");
     }
 
+    @Test
+    public void test3(){
+        System.out.println("->Running test 3...");
+
+        String str1 = "hello";
+        String str2 = "hello";
+        String str3 = "hello";
+
+
+    }
 
 
 
