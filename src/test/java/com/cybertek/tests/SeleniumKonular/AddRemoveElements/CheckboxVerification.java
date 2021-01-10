@@ -38,6 +38,7 @@ public class CheckboxVerification {
             System.out.println("checked box is displayed");
         }else {
             System.out.println("checked box is not displayed");
+            System.out.println("actual: "+actualText);
 
         }
 
