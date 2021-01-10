@@ -37,6 +37,7 @@ public class CheckboxVerification {
         if (expectedtext.equals(actualText)){
             System.out.println("checked box is displayed");
         }else {
+            System.out.println("checked box is not displayed");
 
         }
 
