@@ -21,13 +21,13 @@ public class MultipleCheckboxVerification {
 
         WebElement checbox1=driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div[2]/div[1]/label/input"));
         checbox1.click();
-        //Thread.sleep(1000);
+        Thread.sleep(1000);
         WebElement checbox2=driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div[2]/div[2]/label/input"));
         checbox2.click();
-       // Thread.sleep(1000);
+       Thread.sleep(1000);
         WebElement checbox3=driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div[2]/div[3]/label/input"));
         checbox3.click();
-       // Thread.sleep(1000);
+        Thread.sleep(1000);
         WebElement checbox4=driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div[2]/div[2]/div[4]/label/input"));
         checbox4.click();
 
@@ -60,7 +60,7 @@ public class MultipleCheckboxVerification {
         String expected=unclick.getAttribute("value");
         String actual="Check All";
 
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
 
         //System.out.println(unclick.getAttribute("class"));
         //System.out.println(unclick.getAttribute("id"));
