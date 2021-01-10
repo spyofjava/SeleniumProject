@@ -39,7 +39,7 @@ public class CheckboxVerification {
         }else {
             System.out.println("checked box is not displayed");
             System.out.println("actual: "+actualText);
-
+            System.out.println("expected: "+expectedtext);
         }
 
 
