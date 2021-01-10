@@ -34,6 +34,9 @@ public class CheckboxVerification {
         String expectedtext=driver.findElement(By.xpath("//div[.='Success - Check box is checked']")).getText();
         String actualText="Success - Check box is checked";
 
+        if (expectedtext.equals(actualText)){
+            System.out.println("checked box is displayed");
+        }
 
     }
 }
