@@ -36,7 +36,17 @@ public class CheckboxVerification {
 
         if (expectedtext.equals(actualText)){
             System.out.println("checked box is displayed");
+        }else {
+
         }
+
+
+
+
+
+        Thread.sleep(2000);
+
+        driver.close();
 
     }
 }
