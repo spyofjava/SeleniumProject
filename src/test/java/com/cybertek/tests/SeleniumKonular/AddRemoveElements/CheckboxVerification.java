@@ -46,6 +46,8 @@ public class CheckboxVerification {
 
 
 
+
+
         Thread.sleep(2000);
 
         driver.close();
