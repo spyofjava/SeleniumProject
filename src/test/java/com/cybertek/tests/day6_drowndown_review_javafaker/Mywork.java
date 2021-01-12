@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -90,6 +91,15 @@ public class Mywork {
         Assert.assertTrue(expected.isDisplayed(),"Order has not been successfully added!!!");
     }
 
+    @AfterMethod
+    public void tearDownMethod() throws InterruptedException {
+
+        //additional 5 seconds before closing the browser
+        Thread.sleep(5000);
+
+
+
+    }
 
 
 
