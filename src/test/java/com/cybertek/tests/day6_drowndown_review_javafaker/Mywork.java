@@ -43,7 +43,13 @@ public class Mywork {
         quantity.sendKeys(Keys.BACK_SPACE);
         quantity.sendKeys("2");
 
+        // 8.Click to “Calculate” button
+        WebElement calculate = driver.findElement(By.xpath("//input[@type=\"submit\"]"));
+        calculate.click();
+
+
     }
+
 
 
 
