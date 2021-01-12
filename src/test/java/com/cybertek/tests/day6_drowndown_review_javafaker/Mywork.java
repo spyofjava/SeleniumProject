@@ -54,8 +54,20 @@ public class Mywork {
         String name = faker.name().name();
         driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_txtName")).sendKeys(name);
 
-    }
+        String street = faker.address().streetAddress();
+        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox2")).sendKeys(street);
 
+        String city = faker.address().city();
+        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox3")).sendKeys(city);
+
+        String state = faker.address().state();
+        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox4")).sendKeys(state);
+
+        String zipcode = faker.address().zipCode().replaceAll("-", "");
+        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox5")).sendKeys(zipcode);
+
+
+    }
 
 
 
