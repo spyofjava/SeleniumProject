@@ -3,7 +3,9 @@ package com.cybertek.tests.day6_drowndown_review_javafaker;
 import com.cybertek.utilities.WebDriverFactory;
 import com.cybertek.utilities.WebOrderUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -37,8 +39,11 @@ public class Mywork {
         Select selectproduct = new Select(driver.findElement(By.id("ctl00_MainContent_fmwOrder_ddlProduct")));
         selectproduct.selectByValue("FamilyAlbum");
 
-    }
+        WebElement quantity = driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity"));
+        quantity.sendKeys(Keys.BACK_SPACE);
+        quantity.sendKeys("2");
 
+    }
 
 
 
