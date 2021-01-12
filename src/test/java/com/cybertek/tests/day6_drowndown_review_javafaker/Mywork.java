@@ -2,6 +2,7 @@ package com.cybertek.tests.day6_drowndown_review_javafaker;
 
 import com.cybertek.utilities.WebDriverFactory;
 import com.cybertek.utilities.WebOrderUtils;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -47,6 +48,11 @@ public class Mywork {
         WebElement calculate = driver.findElement(By.xpath("//input[@type=\"submit\"]"));
         calculate.click();
 
+
+        // 9.Fill address Info with JavaFaker•Generate: name, street, city, state, zip code
+        Faker faker = new Faker();
+        String name = faker.name().name();
+        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_txtName")).sendKeys(name);
 
     }
 
