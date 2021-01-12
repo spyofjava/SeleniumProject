@@ -36,7 +36,7 @@ public class Mywork {
     @Test
     public void test2(){
         // 6.Click on Order
-        driver.findElement(By.xpath("//a[@href=\"Process.aspx\"]")).click();
+        driver.findElement(By.xpath("//a[@href='Process.aspx']")).click();
 
         // 7.Select familyAlbum from product, set quantity to 2
         Select selectproduct = new Select(driver.findElement(By.id("ctl00_MainContent_fmwOrder_ddlProduct")));
@@ -54,19 +54,19 @@ public class Mywork {
         // 9.Fill address Info with JavaFaker•Generate: name, street, city, state, zip code
         Faker faker=new Faker();
         String name = faker.name().name();
-        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_txtName")).sendKeys(name);
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtName")).sendKeys(name);
 
         String street = faker.address().streetAddress();
-        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox2")).sendKeys(street);
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox2")).sendKeys(street);
 
         String city = faker.address().city();
-        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox3")).sendKeys(city);
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox3")).sendKeys(city);
 
         String state = faker.address().state();
-        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox4")).sendKeys(state);
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox4")).sendKeys(state);
 
         String zipcode= faker.address().zipCode().replaceAll("-", "");
-        driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox5")).sendKeys(zipcode);
+        driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox5")).sendKeys(zipcode);
 
 
         // 10.Click on “visa” radio button
