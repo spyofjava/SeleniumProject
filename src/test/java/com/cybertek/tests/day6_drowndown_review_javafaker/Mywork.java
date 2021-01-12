@@ -97,7 +97,7 @@ public class Mywork {
         //additional 5 seconds before closing the browser
         Thread.sleep(5000);
 
-
+        driver.close();
 
     }
 
