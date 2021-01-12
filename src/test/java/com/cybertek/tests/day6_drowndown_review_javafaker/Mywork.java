@@ -4,6 +4,7 @@ import com.cybertek.utilities.WebDriverFactory;
 import com.cybertek.utilities.WebOrderUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -31,6 +32,10 @@ public class Mywork {
     public void test2() {
         // 6.Click on Order
         driver.findElement(By.xpath("//a[@href=\"Process.aspx\"]")).click();
+
+        // 7.Select familyAlbum from product, set quantity to 2
+        Select selectproduct = new Select(driver.findElement(By.id("ctl00_MainContent_fmwOrder_ddlProduct")));
+        selectproduct.selectByValue("FamilyAlbum");
 
     }
 
