@@ -78,8 +78,12 @@ public class Mywork {
 
         driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox1")).sendKeys("11/06");
 
-    }
+        // 12.Click on “Process”
 
+        WebElement ProcessButton = driver.findElement(By.id("ctl00_MainContent_fmwOrder_InsertButton"));
+        ProcessButton.click();
+
+    }
 
 
 
