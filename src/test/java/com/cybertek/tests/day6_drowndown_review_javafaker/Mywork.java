@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -32,7 +33,7 @@ public class Mywork {
         WebOrderUtils.loginToSmartBear(driver);
     }
     @Test
-    public void test2() {
+    public void test2(){
         // 6.Click on Order
         driver.findElement(By.xpath("//a[@href=\"Process.aspx\"]")).click();
 
@@ -50,7 +51,7 @@ public class Mywork {
 
 
         // 9.Fill address Info with JavaFaker•Generate: name, street, city, state, zip code
-        Faker faker = new Faker();
+        Faker faker=new Faker();
         String name = faker.name().name();
         driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_txtName")).sendKeys(name);
 
@@ -63,7 +64,7 @@ public class Mywork {
         String state = faker.address().state();
         driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox4")).sendKeys(state);
 
-        String zipcode = faker.address().zipCode().replaceAll("-", "");
+        String zipcode= faker.address().zipCode().replaceAll("-", "");
         driver.findElement(By.xpath("ctl00_MainContent_fmwOrder_TextBox5")).sendKeys(zipcode);
 
 
@@ -72,7 +73,7 @@ public class Mywork {
 
 
         // 11.Generate card number using JavaFaker
-        String cardnumber = faker.finance().creditCard().replaceAll("-", "");
+        String cardnumber= faker.finance().creditCard().replaceAll("-", "");
         driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox6")).sendKeys(cardnumber);
 
 
@@ -83,7 +84,14 @@ public class Mywork {
         WebElement ProcessButton = driver.findElement(By.id("ctl00_MainContent_fmwOrder_InsertButton"));
         ProcessButton.click();
 
+        // 13.Verify success message “New order has been successfully added.
+        WebElement expected = driver.findElement(By.xpath("//div[@class='buttons_process']/strong"));
+
+        Assert.assertTrue(expected.isDisplayed(),"Order has not been successfully added!!!");
     }
+
+
+
 
 
 
