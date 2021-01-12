@@ -2,8 +2,10 @@ package com.cybertek.tests.day6_drowndown_review_javafaker;
 
 import com.cybertek.utilities.WebDriverFactory;
 import com.cybertek.utilities.WebOrderUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class Mywork {
 
@@ -24,6 +26,12 @@ public class Mywork {
         // 4.Enter password: “test”
         // 5.Click on Login button
         WebOrderUtils.loginToSmartBear(driver);
+    }
+    @Test
+    public void test2() {
+        // 6.Click on Order
+        driver.findElement(By.xpath("//a[@href=\"Process.aspx\"]")).click();
+
     }
 
 
