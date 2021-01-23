@@ -1,6 +1,7 @@
 package com.cybertek.tests.day7_alerts_iframes_windows;
 
 import com.cybertek.utilities.WebDriverFactory;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,6 +35,10 @@ public class bos {
 
 
         Thread.sleep(3000);
+
+
+         Alert alert= driver.switchTo().alert();
+         alert.accept();
 
 
 
