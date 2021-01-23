@@ -45,6 +45,8 @@ public class bos {
          WebElement resultTest= driver.findElement(By.id("result"));
 
          String Expected= resultTest.getText();
+         String Actual= "You successfuly clicked an alert";
+
 
 
      }
