@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
+
 public class bos {
 
     WebDriver driver;
@@ -56,7 +57,7 @@ public class bos {
 
 
     @AfterMethod
-    public void teardownMethod() throws InterruptedException{
+    public void tearMethod() throws InterruptedException{
         Thread.sleep(5000);
         driver.close();
     }
