@@ -15,6 +15,7 @@ public class SeleniumTest {
         // this is the line where the Selenium WebDriver opens the browser
         WebDriver driver = new ChromeDriver();
 
+
         //3- Use the instance to get the URL we want
         driver.get("https://www.google.com");
 
