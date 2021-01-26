@@ -11,7 +11,7 @@ public class P2_ZerobankVerification {
 
         //TC #2: Zero Bank link text verification
         //1. Open Chrome browser
-        WebDriver driver = WebDriverFactory.getDriver("firefox");
+        WebDriver driver = WebDriverFactory.getDriver("firefox");//polimorphsm
 
         driver.manage().window().maximize();
 
