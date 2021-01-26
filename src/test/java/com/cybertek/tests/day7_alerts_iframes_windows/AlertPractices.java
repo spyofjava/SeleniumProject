@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 public class AlertPractices {
     WebDriver driver;
 
-
     @BeforeMethod
     public void setUpMethod(){
         //1. Open browser
