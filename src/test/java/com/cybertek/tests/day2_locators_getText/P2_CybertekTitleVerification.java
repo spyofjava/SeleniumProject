@@ -20,28 +20,31 @@ public class P2_CybertekTitleVerification {
 
         //3. Verify URL contains
         //Expected: cybertekschool
+        String expectedInUrl = "cybertekschool";
+        String actualUrl =  driver.getCurrentUrl();
 
-        String expectedInUrl="cybertekschool";
-        String actualUrl=driver.getCurrentUrl();
+        System.out.println("expectedInUrl = " + expectedInUrl);
+        System.out.println("actualUrl = " + actualUrl);
 
         if (actualUrl.contains(expectedInUrl)){
             System.out.println("URL verification PASSED!");
-        }else {
-            System.out.println("URL verification FAILED!!!");
+        }else{
+            System.err.println("URL verification FAILED!!!");
         }
 
         //4. Verify title:
         //Expected: Practice
-
-        String expectedTitle="Practice";
-        String actualTitle= driver.getTitle();
+        String expectedTitle = "Practice";
+        String actualTitle = driver.getTitle();
 
         if (actualTitle.equals(expectedTitle)){
-            System.out.println("Title verification PASSED!");
-        }else {
-            System.out.println("Title verification FAILED!!!");
+            System.out.println("Title verification PASSED!!!");
+        }else{
+            System.err.println("Title verification FAILED!!!");
         }
-    driver.close();
+
+
+        driver.close();
 
     }
 }

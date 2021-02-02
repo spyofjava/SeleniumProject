@@ -125,7 +125,7 @@ public class DropdownTasks {
 
         //3. Select all the options from multiple select dropdown.
         List<WebElement> allOptions = multipSelectDropdown.getOptions();
-
+        
         //Loop through the List and click to each option
         //iter for creating short cut for:each loop
         for (WebElement each : allOptions) {

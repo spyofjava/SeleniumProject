@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class P5_SmartBearLoginVerification {
 
-
     public static void main(String[] args) {
 
         //TC #5: Basic login authentication
@@ -68,7 +67,4 @@ public class P5_SmartBearLoginVerification {
 
 
     }
-
-
-
 }

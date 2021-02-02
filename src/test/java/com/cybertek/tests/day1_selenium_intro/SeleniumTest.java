@@ -1,26 +1,32 @@
-package com.cybertek.tests.day1_selenium_intro;
+package com.cybertek.tests.day1_Selenium_Intro;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SeleniumTest {
+
     public static void main(String[] args) throws InterruptedException {
 
         //1- Setup web driver manager
         WebDriverManager.chromedriver().setup();
         //System.setProperty("chrome", "path of driver");
 
+//        WebDriverManager.firefoxdriver().setup();
+//        WebDriver driver = new FirefoxDriver();
+
         //2- Create instance of web driver
         // this is the line where the Selenium WebDriver opens the browser
         WebDriver driver = new ChromeDriver();
 
+        //this line maximizes the browser.
+        driver.manage().window().maximize();
 
         //3- Use the instance to get the URL we want
         driver.get("https://www.google.com");
 
         System.out.println("Current title of the page: " + driver.getTitle());
-/*
+
         //getting the current URL and storing it into a String
         String currentUrl = driver.getCurrentUrl();
 
@@ -49,7 +55,12 @@ public class SeleniumTest {
 
         System.out.println("currentUrl = " + currentUrl);
 
+        //closing the browser
+        driver.close();
 
- */
+
+
+
+
     }
 }

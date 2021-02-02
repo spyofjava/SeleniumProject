@@ -11,6 +11,7 @@ public class WebOrderUtils {
     /*
         Make the method static so that we dont have to create
         instance of the class.
+
      */
     public static void loginToSmartBear(WebDriver driver){
         //3. Enter username: “Tester”
@@ -36,7 +37,7 @@ public class WebOrderUtils {
 
     public static void verifyOrder(WebDriver driver, String expectedName){
 
-        //1- Create a locator that is returning us all of the lists in the table
+    //1- Create a locator that is returning us all of the lists in the table
         //table[@id='ctl00_MainContent_orderGrid']//tr//td[2]
 
         List<WebElement> allNames = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr//td[2]"));
@@ -45,10 +46,10 @@ public class WebOrderUtils {
 
         for (WebElement each : allNames) {
 
-            if (each.getText().equals(expectedName)) {
-                Assert.assertTrue(each.getText().equals(expectedName) );
-                return;
-            }
+          if (each.getText().equals(expectedName)) {
+              Assert.assertTrue(each.getText().equals(expectedName) );
+              return;
+          }
 
         }
 

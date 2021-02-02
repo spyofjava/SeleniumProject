@@ -25,25 +25,24 @@ public class P4_GoogleSearchVerification {
         driver.get("https://www.google.com");
 
         //3- Write “apple” in search box
-        driver.findElement(By.name("q")).sendKeys("apple"+ Keys.ENTER);
-
         //4- Click google search button
+        // //(instead of clicking to search button we press ENTER)
+
+        driver.findElement(By.name("q")).sendKeys("apple" + Keys.ENTER);
+
         //5- Verify title:
         //Expected: Title should start with “apple” word
-
-        String expectedInTitle="Google";
-        String actualTitle= driver.getTitle();
+        String expectedInTitle = "apple";
+        String actualTitle = driver.getTitle();
 
         if (actualTitle.startsWith(expectedInTitle)){
             System.out.println("Title verification PASSED!");
-        }else {
+        }else{
             System.err.println("Title verification FAILED!!!");
-            System.out.println("expectedInTitle: "+expectedInTitle);
-            System.out.println("actualTitle: "+actualTitle);
+            System.out.println("expectedInTitle = " + expectedInTitle);
+            System.out.println("actualTitle = " + actualTitle);
         }
 
-
-
-
+        driver.close();
     }
 }

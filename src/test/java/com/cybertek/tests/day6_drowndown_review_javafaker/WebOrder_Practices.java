@@ -38,117 +38,98 @@ public class WebOrder_Practices {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         WebOrderUtils.loginToSmartBear(driver);
+
+    }
+
+    @Test
+    public void test2_create_order_with_java_faker() throws InterruptedException {
+        //6. Click on Order
+        WebElement orderLink = driver.findElement(By.linkText("Order"));
+        orderLink.click();
+
+        //7. Select familyAlbum from product, set quantity to 2
+
+        //Locating the dropdown
+        Select productDropdown = new Select(driver.findElement(By.id("ctl00_MainContent_fmwOrder_ddlProduct")));
+
+        //Selecting "FamilyAlbum" from options using selectByVisibleText method
+        productDropdown.selectByVisibleText("FamilyAlbum");
+
+        //Locate quantityInput box
+        WebElement inputQuantity = driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity"));
+
+        //inputQuantity.clear();
+        Thread.sleep(1000);
+        inputQuantity.sendKeys(Keys.BACK_SPACE );
+
+        Thread.sleep(1000);
+        inputQuantity.sendKeys("2");
+
+        //8. Click to “Calculate” button
+        WebElement calculateButton = driver.findElement(By.xpath("//input[@value='Calculate']"));
+        calculateButton.click();
+
+        //Locating web elements using ID locator
+        WebElement nameinput = driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtName"));
+        WebElement streetInput = driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox2"));
+        WebElement cityAddress = driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox3"));
+        WebElement zipCode = driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox5"));
+
+        //9. Fill address Info with JavaFaker
+        Faker faker = new Faker();
+
+        nameinput.sendKeys(faker.name().fullName());
+        streetInput.sendKeys(faker.address().streetAddress());
+        cityAddress.sendKeys(faker.address().cityName());
+
+        zipCode.sendKeys(faker.address().zipCode().replaceAll("-",""));
+
+        //• Generate: name, street, city, state, zip code
+        //10. Click on “visa” radio button
+        WebElement visaRadioButton = driver.findElement(By.id("ctl00_MainContent_fmwOrder_cardList_0"));
+        visaRadioButton.click();
+
+        //11. Generate card number using JavaFaker
+        WebElement inputCreditCard = driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox6"));
+        inputCreditCard.sendKeys(faker.finance().creditCard().replaceAll("-", ""));
+
+        //Enter ExpirationDate
+        WebElement inputExpirationDate = driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox1"));
+
+        inputExpirationDate.sendKeys("01/26");
+
+        //12. Click on “Process”
+        WebElement processButton = driver.findElement(By.linkText("Process"));
+        processButton.click();
+
+        //13.Verify success message “New order has been successfully added." displayed
+        WebElement successMessage = driver.findElement(By.xpath("//div[@class='buttons_process']/strong"));
+
+        Assert.assertTrue(successMessage.isDisplayed(), "Success message is NOT displayed!!!");
+
     }
 
 
+
+
     @Test
-    public void test1_link_verifications() throws InterruptedException {
+    public void test1_link_verifications(){
+
 
         //6. Print out count of all the links on landing page
-        List<WebElement> alllinks = driver.findElements(By.xpath("//body//a"));
+        List<WebElement> allLinks = driver.findElements(By.xpath("//body//a"));
 
-        System.out.println("Number of all links in this page = " + alllinks.size());
+        System.out.println("Number of all links in this page: " + allLinks.size());
 
         //7. Print out each link text on this page
+        for (WebElement each : allLinks) {
 
-        for (WebElement each : alllinks) {
-            System.out.println("alllink = " + each.getText());
+            System.out.println("eachLink = "+each.getText());
+
         }
 
-        Thread.sleep(2000);
-        driver.close();
-    }
-
-
-
-
-    @Test
-    public void test2_Order_Placing() throws InterruptedException{
-        //Open browser
-       // WebDriverFactory.getDriver("chrome");
-
-        // 2.Go to website: http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
-        //driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
-
-        // 3.Enter username: “Tester”
-        // 4.Enter password: “test”
-        // 5.Click on Login button
-       // WebOrderUtils.loginToSmartBear(driver);
-
-        // 6.Click on Order
-        WebElement Orderbutton = driver.findElement(By.xpath("//a[@href='Process.aspx']"));
-        Orderbutton.click();
-
-        // 7.Select familyAlbum from product, set quantity to 2
-
-        Select product = new Select(driver.findElement(By.id("ctl00_MainContent_fmwOrder_ddlProduct")));
-        Thread.sleep(1000);
-        product.selectByValue("FamilyAlbum");
-
-        //quantity
-        driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity")).sendKeys(Keys.BACK_SPACE);
-        //Thread.sleep(1000);
-
-        driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtQuantity")).sendKeys("2");
-        //Thread.sleep(2000);
-
-
-
-
-        // 8.Click to “Calculate” button
-
-        driver.findElement(By.xpath("//input[@type='submit']")).click();
-
-
-        // 9.Fill address Info with JavaFaker•Generate: name, street, city, state, zip code
-        Faker faker=new Faker();
-        String name = faker.name().firstName();
-        driver.findElement(By.id("ctl00_MainContent_fmwOrder_txtName")).sendKeys(name);
-
-        String street = faker.address().streetAddress();
-        driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox2")).sendKeys(street);
-
-
-        String city= faker.address().city();
-        driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox3")).sendKeys(city);
-
-        String state = faker.address().state();
-        driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox4")).sendKeys(state);
-
-        String  zipcode=  faker.address().zipCode().replaceAll("-", "");
-        driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox5")).sendKeys(zipcode);
-
-        // 10.Click on “visa” radio button
-
-        WebElement VisaRadioButton = driver.findElement(By.id("ctl00_MainContent_fmwOrder_cardList_0"));
-        VisaRadioButton.click();
-
-        // 11.Generate card number using JavaFaker
-
-        WebElement inputcrediCard = driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox6"));
-        inputcrediCard.sendKeys(faker.finance().creditCard().replaceAll("-",""));
-
-        //enter expirationdate
-        WebElement expirationdate = driver.findElement(By.id("ctl00_MainContent_fmwOrder_TextBox1"));
-        expirationdate.sendKeys("01/26");
-
-
-
-        // 12.Click on “Process”13.Verify success message “New order has been successfully added
-        WebElement ProcessButton= driver.findElement(By.linkText("Process"));
-
-        ProcessButton.click();
-
-
-        WebElement message = driver.findElement(By.xpath("//div[@class='buttons_process']/strong"));
-        Assert.assertTrue(message.isDisplayed(), "Success message is NOT displayed!!!");
-
-
-
-
 
     }
-
 
     @AfterMethod
     public void tearDownMethod() throws InterruptedException {
@@ -156,7 +137,9 @@ public class WebOrder_Practices {
         //additional 5 seconds before closing the browser
         Thread.sleep(5000);
 
-        driver.close();
+        //driver.close();
 
     }
+
+
 }

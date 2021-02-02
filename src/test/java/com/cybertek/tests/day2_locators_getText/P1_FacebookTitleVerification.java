@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class P1_FacebookTitleVerification {
 
     public static void main(String[] args) {
+
         //TC #1: Facebook Title Verification
         //1. Open Chrome browser
         //Setup the browser driver
@@ -23,21 +24,21 @@ public class P1_FacebookTitleVerification {
         //Expected: Facebook - Log In or Sign Up
         //Actual: we need to get from browser using selenium
 
-        String expectedResult = "Facebook - Log In or Sign Up";
+        String expectedTitle = "Facebook - Log In or Sign Up";
 
-        String  actualTitle=driver.getTitle();
+        String actualTitle = driver.getTitle();
 
-        //doing verification by creating simple if condition below
+        //doing verification by creating simple if condition below:
 
-        if (actualTitle.equals(expectedResult)){
+        if (actualTitle.equals(expectedTitle)){
             System.out.println("Title verification PASSED!");
-        }else {
+        }else{
             System.out.println("Title verification FAILED!!!");
         }
+
         driver.close();
 
 
-
-
     }
+
 }

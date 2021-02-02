@@ -17,28 +17,28 @@ public class WT_CybertekLinkVerification {
 
         //create instance of browser
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
         //2. Go to http://practice.cybertekschool.com/forgot_password
         driver.get("http://practice.cybertekschool.com/forgot_password");
 
         //3. Enter any email into input box
-        driver.findElement(By.name("email")).sendKeys("ibrahimhocamm@gmail.com");
+        driver.findElement(By.name("email")).sendKeys("anything@anydomain.com");
 
         //4. Click on Retrieve password
         driver.findElement(By.id("form_submit")).click();
+
         //5. Verify URL contains:
         //Expected: “email_sent”
-
-        String expectedUrl = "email_sent";
+        String expectedInUrl = "email_sent";
         String actualUrl = driver.getCurrentUrl();
 
-
-        if (actualUrl.contains(expectedUrl)) {
+        if (actualUrl.contains(expectedInUrl)){
             System.out.println("URL verification PASSED!");
-        } else {
-            System.err.println("Landing page title verification FAILED!!!");
+        }else{
+            System.out.println("URL verification FAILED!!!");
             System.out.println("actualUrl = " + actualUrl);
-            System.out.println("expectedUrl = " + expectedUrl);
+            System.out.println("expectedInUrl = " + expectedInUrl);
         }
 
         //6. Verify textbox displayed the content as expected.
@@ -47,9 +47,9 @@ public class WT_CybertekLinkVerification {
 
         //First verification is to check if it is displayed on the page or not.
 
-        if (confirmation_message.isDisplayed()) {
+        if (confirmation_message.isDisplayed()){
             System.out.println("Confirmation message is displayed. PASS!!!");
-        } else {
+        }else{
             System.out.println("Confirmation message is NOT displayed. FAIL!!!");
         }
 
@@ -59,16 +59,16 @@ public class WT_CybertekLinkVerification {
         //String actualMessage = driver.findElement(By.name("confirmation_message")).getText();
         String actualMessage = confirmation_message.getText();
 
-        if (actualMessage.equals(expectedMessage)) {
+        if (actualMessage.equals(expectedMessage)){
             System.out.println("Message verification PASSED!");
-        } else {
+        }else{
             System.out.println("Message verification FAILED!!!");
             System.out.println("expectedMessage = " + expectedMessage);
             System.out.println("actualMessage = " + actualMessage);
         }
 
         driver.close();
+        //BREAK UNTIL 11.17AM CST 12.17PM EST
     }
-
 
 }

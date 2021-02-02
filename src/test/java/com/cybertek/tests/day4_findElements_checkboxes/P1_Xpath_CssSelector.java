@@ -58,8 +58,8 @@ public class P1_Xpath_CssSelector {
         //4. Verify all WebElements are displayed.
 
         if(homeLink.isDisplayed() && forgotPasswordHeader.isDisplayed()
-                && emailLabel.isDisplayed() && emailInputBox.isDisplayed()
-                && retrievePasswordButton.isDisplayed() && footerText.isDisplayed() ){
+        && emailLabel.isDisplayed() && emailInputBox.isDisplayed()
+        && retrievePasswordButton.isDisplayed() && footerText.isDisplayed() ){
             System.out.println("ALL WEB ELEMENTS ARE DISPLAYED. VERIFICATION PASSED!");
         }else{
             System.out.println("One or more of the web elements are not displayed. Verification FAILED!!!");
