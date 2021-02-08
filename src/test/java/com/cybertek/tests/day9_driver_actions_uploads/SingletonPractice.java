@@ -13,8 +13,7 @@ public class SingletonPractice {
         String str2 = Singleton.getWord();
         System.out.println("str2 = " + str2);
 
-        String str3 = Singleton.getWord();
-        System.out.println("str3 = " + str3);
+
 
     }
 
