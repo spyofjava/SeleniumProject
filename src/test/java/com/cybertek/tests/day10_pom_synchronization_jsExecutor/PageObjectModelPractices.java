@@ -1,6 +1,7 @@
 package com.cybertek.tests.day10_pom_synchronization_jsExecutor;
 
 import com.cybertek.pages.LoginPage;
+import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
 import org.testng.annotations.Test;
 
@@ -17,9 +18,11 @@ public class PageObjectModelPractices {
         //We are allowed to use object of this class to reach web elements and use selenium methods
 
         //Sending username using object of LoginPage and web element (that has been located in LoginPage)
-        loginPage.inputUsername.sendKeys("tester");
+        String username = ConfigurationReader.getProperty("usernameSmartBear");
+        loginPage.inputUsername.sendKeys(username);
 
-        loginPage.inputPassword.sendKeys("test");
+        String password = ConfigurationReader.getProperty("userpasswordSmartBear");
+        loginPage.inputPassword.sendKeys(password);
 
         loginPage.loginButton.click();
 
